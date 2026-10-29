@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pause Challenge</title>
+<meta name="description" content="Make a 'pause at the right time' video for your brand: your photos flash by and your discount code shows for one split second. Made in your browser.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header class="top"><span class="mark" aria-hidden="true"><i></i><i></i></span><span>Pause Challenge</span></header>
+
+  <section class="intro">
+    <h1>Hide your discount code in one frame.</h1>
+    <p>Your photos flash by. Your code shows for a split second. People pause, rewatch and screenshot to win it. Make the video here and post it as a Reel or TikTok.</p>
+  </section>
+
+  <div class="maker">
+    <form class="controls" id="form" autocomplete="off">
+      <fieldset>
+        <legend>1. Your photos</legend>
+        <label class="drop" id="drop">
+          <input type="file" id="photos" accept="image/jpeg,image/png,image/webp" multiple>
+          <span><b>Add 3 to 12 photos</b><br>JPG or PNG. They stay on your device.</span>
+        </label>
+        <p class="hint" id="photoCount">Using 6 example tees until you add your own.</p>
+        <div class="thumbs" id="thumbs"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Your code</legend>
+        <label>Code <input name="code" maxlength="16" required></label>
+        <label>What it gets them <input name="reward" maxlength="24" required></label>
+        <label>How to claim it <input name="claim" maxlength="48" required></label>
+        <label class="color">Code card colour <input type="color" name="brand"></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. The challenge</legend>
+        <label>Top line <input name="hook" maxlength="60" required></label>
+        <div class="seg" role="radiogroup" aria-label="How hard">
+          <span>How hard</span>
+          <label><input type="radio" name="hold" value="1"><b>Very hard</b><small>1 frame</small></label>
+          <label><input type="radio" name="hold" value="2"><b>Hard</b><small>2 frames</small></label>
+          <label><input type="radio" name="hold" value="4"><b>Fair</b><small>4 frames</small></label>
+        </div>
+        <div class="seg" role="radiogroup" aria-label="Length">
+          <span>Length</span>
+          <label><input type="radio" name="seconds" value="8"><b>8 s</b></label>
+          <label><input type="radio" name="seconds" value="10"><b>10 s</b></label>
+          <label><input type="radio" name="seconds" value="15"><b>15 s</b></label>
+        </div>
+      </fieldset>
+    </form>
+
+    <div class="stage">
+      <div class="phone"><canvas id="preview" width="1080" height="1920" aria-label="Preview of your video"></canvas>
+        <button type="button" class="pp" id="pp" aria-label="Pause preview"><i></i><i></i></button>
+      </div>
+      <p class="hint center" id="where">The code shows at <b id="at">6.0 s</b>. Pause the preview there to check it.</p>
+      <button type="button" class="primary" id="make">Download the video</button>
+      <p class="status" id="status" aria-live="polite"></p>
+      <p class="hint center">Add a song in Instagram or TikTok when you post. The video is silent so you can use a trending sound.</p>
+    </div>
+  </div>
+
+  <footer class="foot"><p>Everything happens in your browser. Your photos are never uploaded, and the page is built so it can't send them anywhere. Works in Chrome, Edge and Safari.</p></footer>
+</main>
+<script src="vendor/mp4-muxer.min.js"></script>
+<script src="app.js" type="module"></script>
+</body>
+</html>

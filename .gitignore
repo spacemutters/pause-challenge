@@ -1,0 +1,6 @@
+.vercel
+node_modules/
+# launch video work and finished videos (large media)
+brag-output/
+final/
+tools/out/
